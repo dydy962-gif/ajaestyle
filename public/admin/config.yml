@@ -1,0 +1,40 @@
+# Decap CMS configuration for Ajae Style
+# Site: https://ajaestyle.com
+# Repository: dydy962-gif/ajaestyle
+
+backend:
+  name: github
+  repo: dydy962-gif/ajaestyle
+  branch: main
+  base_url: https://ajaestyle.com
+  auth_endpoint: api/auth
+
+# Site URL (used for previews)
+site_url: https://ajaestyle.com
+display_url: https://ajaestyle.com
+
+# Media files location
+# Images uploaded via CMS will be saved to src/assets/images/
+media_folder: "src/assets/images"
+public_folder: "/src/assets/images"
+
+# Content collections
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Author", name: "author", widget: "string", default: "Ajae" }
+      - { label: "Published Date", name: "pubDatetime", widget: "datetime" }
+      - { label: "Modified Date", name: "modDatetime", widget: "datetime", required: false }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Tags", name: "tags", widget: "list", default: ["others"] }
+      - { label: "Canonical URL", name: "canonicalURL", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
